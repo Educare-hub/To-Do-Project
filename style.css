@@ -1,11 +1,11 @@
-* {
+* { 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: 
     url("images/bg-desktop-dark.jpg") no-repeat top center,
     url("images/blue-and-purple-eiljkxeeqelk6i1a.jpg") no-repeat bottom center;
@@ -20,20 +20,27 @@ body {
 .todo-app {
   width: 100%;
   max-width: 500px;
+  min-height: 450px;
   background: rgb(136, 240, 205);
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   padding: 20px;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 600;
   letter-spacing: 3px;
   text-align: center;
   background: hsl(235, 24%, 19%);
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .add-todo {
@@ -54,6 +61,9 @@ header {
 
 ul.todo-list {
   list-style: none;
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0;
 }
 
 ul.todo-list li {
@@ -63,27 +73,76 @@ ul.todo-list li {
   padding: 12px 15px;
   border-bottom: 1px solid #eee;
   cursor: grab;
+  background: #e0f7f1;
+  margin: 5px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease, background 0.3s ease;
+  position: relative;
+}
+
+ul.todo-list li.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 ul.todo-list li.completed span {
   text-decoration: line-through;
-  color: gray;
+  color: rgb(128, 13, 13);
 }
 
-ul.todo-list li button {
-  background: none;
-  border: none;
+ul.todo-list li span.task-text {
+  flex: 1;
+  margin-right: 10px;
+}
+
+ul.todo-list li .task-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+ul.todo-list li .task-controls button,
+ul.todo-list li .task-controls input {
   cursor: pointer;
-  color: crimson;
+  border: none;
+  background: none;
   font-size: 16px;
+}
+
+ul.todo-list li .task-controls input {
+  padding: 2px 5px;
+}
+
+ul.todo-list li .countdown {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: hsl(220, 98%, 31%);
+  background: rgba(255,255,255,0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  min-width: 70px;
+  text-align: center;
+}
+
+ul.todo-list li.alarm-flash {
+  animation: flash-bg 1s infinite;
+}
+
+@keyframes flash-bg {
+  0%, 50%, 100% { background: #e0f7f1; }
+  25%, 75% { background: #ff4c4c; }
 }
 
 .todo-footer {
   display: flex;
   justify-content: space-between;
-  padding: 12px 15px;
+  align-items: center;
+  padding: 15px;
   font-size: 14px;
   color: gray;
+  margin-top: 10px;
 }
 
 .filters button {
@@ -91,16 +150,16 @@ ul.todo-list li button {
   border: none;
   background: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filters button:hover {
+  transform: scale(1.1);
 }
 
 .filters button.active {
   color: hsl(220, 98%, 61%);
   font-weight: bold;
-}
-.add-todo .select2-container {
-  flex: 0 0 180px;
-  width: 180px !important;
-  max-width: 180px;
 }
 
 .add-todo button {
@@ -120,3 +179,19 @@ ul.todo-list li button {
   background: hsl(220, 98%, 50%);
 }
 
+#clear-completed i {
+  margin-right: 5px;
+}
+#clear-completed {
+  background-color: hsl(220, 98%, 61%);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#clear-completed:hover {
+  background-color: hsl(86, 84%, 46%);
+}
