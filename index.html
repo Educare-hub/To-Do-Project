@@ -7,27 +7,56 @@
   <title>Todo App</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-
   <link rel="stylesheet" href="style.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
   <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
-
   <div class="todo-app">
- 
     <header>
       TODO
     </header>
 
-   
     <div class="add-todo">
-      <input type="text" id="todo-input" placeholder="Create a new todo...">
+      <select id="task-input">
+        <option value="">-- Select a task --</option>
+        <option value="Study">Study</option>
+        <option value="Do homework">Do homework</option>
+        <option value="Go to the gym">Go to the gym</option>
+        <option value="Read a book">Read a book</option>
+        <option value="Clean the house">Clean the house</option>
+        <option value="Attend online meeting">Attend online meeting</option>
+        <option value="Prepare presentation">Prepare presentation</option>
+        <option value="Check emails">Check emails</option>
+        <option value="Submit assignment">Submit assignment</option>
+        <option value="Organize files">Organize files</option>
+        <option value="Pay bills">Pay bills</option>
+        <option value="Cook dinner">Cook dinner</option>
+        <option value="Buy groceries">Buy groceries</option>
+        <option value="Review project plan">Review project plan</option>
+        <option value="Code review">Code review</option>
+        <option value="Debug application">Debug application</option>
+        <option value="Write report">Write report</option>
+        <option value="Schedule doctor appointment">Schedule doctor appointment</option>
+        <option value="Update resume">Update resume</option>
+        <option value="Practice coding">Practice coding</option>
+        <option value="Research topic">Research topic</option>
+        <option value="Team brainstorming">Team brainstorming</option>
+        <option value="Reply to messages">Reply to messages</option>
+        <option value="Walk the dog">Walk the dog</option>
+        <option value="Water the plants">Water the plants</option>
+      </select>
+      <button id="add-task">+</button>
     </div>
 
-    
     <ul class="todo-list"></ul>
 
-   
     <div class="todo-footer">
       <span id="items-left">0 items left</span>
       <div class="filters">
@@ -38,5 +67,5 @@
       <button id="clear-completed">Clear Completed</button>
     </div>
   </div>
-
-  <p class="attributi
+</body>
+</html>
